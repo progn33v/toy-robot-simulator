@@ -1,0 +1,62 @@
+<h1>Welcome To Toy Robot Simulator</h1>
+<table>
+  <tr *ngFor="let col of counter(maxVal); let j = index">
+    <td
+      *ngFor="let row of counter(maxVal); let i = index"
+      id="t{{i}}{{maxVal - j - 1}}"
+    >
+      <div *ngIf="isCurrent(i, maxVal - j - 1)">
+        <div class="arrow" [ngClass]="direction.toLowerCase()"></div>
+      </div>
+      <div *ngIf="!isCurrent(i, maxVal - j - 1)">{{i}},{{maxVal - j - 1}}</div>
+    </td>
+  </tr>
+</table>
+<div class="options-wrapper">
+  <p>Available Commands:</p>
+  <div class="input-group">
+    <form [formGroup]="form" class="place-wrapper">
+      <div class="input-wrapper">
+        <label for="x-position">X:</label>
+        <input
+          [formControl]="xPosition"
+          name="x-position"
+          id="x-position"
+          type="number"
+        />
+      </div>
+      <div class="input-wrapper">
+        <label for="y-position">Y:</label>
+        <input
+          [formControl]="yPosition"
+          name="y-position"
+          id="y-position"
+          type="number"
+        />
+      </div>
+      <div class="input-wrapper direction-wrapper">
+        <label for="direction">Direction:</label>
+        <ng-select
+          [items]="directionArray"
+          bindValue="value"
+          bindLabel="label"
+          [formControl]="toyDirection"
+          placeholder="Select Direction"
+          closeOnSelect=true
+          name="direction"
+        ></ng-select>
+      </div>
+      <button (click)="placeToy($event)">PLACE</button>
+    </form>
+  </div>
+  
+  <div class="input-group">
+    <button (click)="rotate(rotations.Left)">LEFT</button>
+    <button (click)="move()">MOVE</button>
+    <button (click)="rotate(rotations.Right)">RIGHT</button>
+  </div>
+  
+  <div class="input-group">
+    <button (click)="report()">REPORT</button>
+  </div>
+</div>
