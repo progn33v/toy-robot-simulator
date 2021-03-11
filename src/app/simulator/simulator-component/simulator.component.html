@@ -8,7 +8,6 @@
       <div *ngIf="isCurrent(i, maxVal - j - 1)">
         <div class="arrow" [ngClass]="direction.toLowerCase()"></div>
       </div>
-      <div *ngIf="!isCurrent(i, maxVal - j - 1)">{{i}},{{maxVal - j - 1}}</div>
     </td>
   </tr>
 </table>
@@ -46,7 +45,7 @@
           name="direction"
         ></ng-select>
       </div>
-      <button (click)="placeToy($event)">PLACE</button>
+      <button (click)="placeToy()">PLACE</button>
     </form>
   </div>
   

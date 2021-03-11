@@ -12,40 +12,41 @@
 
 table {
   margin: 50px auto;
-  background-color: white;
+  background-image: url('https://info.thecontractchair.co.uk/hubfs/blogs/wooden-table-tops-types/ash-wood-table-top.jpg');
   border-radius: 5px;
 
   td {
     box-sizing: border-box;
-    border: 1px solid #dbdbdb;
+    border: none;
     padding: 1em;
     vertical-align: middle;
-    height: 50px;
+    height: 64px;
+    width: 64px;
     text-align: center;
     border-radius: 5px;
   }
 }
 
 .arrow {
-  background-image: url('/assets/down-arrow.svg');
-  width: 14px;
-  height: 8px;
+  background-image: url('/assets/robot.png');
+  width: 32px;
+  height: 32px;
   margin: auto;
 
   &.north {
-    transform: rotate(180deg);
-  }
-
-  &.east {
-    transform: rotate(-90deg);
-  }
-
-  &.south {
     transform: rotate(0deg);
   }
 
-  &.west {
+  &.east {
     transform: rotate(90deg);
+  }
+
+  &.south {
+    transform: rotate(180deg);
+  }
+
+  &.west {
+    transform: rotate(-90deg);
   }
 }
 
